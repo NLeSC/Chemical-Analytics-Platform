@@ -8,7 +8,10 @@
       apt: pkg=cinnamon state=latest
     - apt: pkg=mdm state=latest
     # make cinnamon start at boot
-    # autologin user
+    - name: autologin user
+      ini_file: dest=/etc/mdm/mdm.conf section=daemon option={{ item.option }} value={{ item.value }} with_items:
+        - { option: 'AutomaticLoginEnable', value: 'true'}
+        - { option: 'AutomaticLogin', value: 'vagrant'}
     # chem tools
     - name: ensure openbabel is installed
       apt: pkg=openbabel state=latest
