@@ -21,7 +21,7 @@
     # wiki
     - user: name=gollum state=present
     - name: dependencies for gollum
-      apt: pkg={{ }} state=latest with_items:
+      apt: pkg={{ item }} state=latest with_items:
         - ruby-dev
         - libicu-dev
         - zlib1g-dev
@@ -36,3 +36,5 @@
     - file: path=/opt/knime state=directory mode=0755
     - unarchive: src=/opt/knime.tar.gz dest=/opt/knime copy=no creates=/opt/knime/knime-full_2.12.0
     - file: src=/opt/knime/knime-full_2.12.0/knime dest=/usr/bin/knime state=link
+    - name: Knime desktop icon
+      copy: src=files/knime.desktop dest=/usr/share/applications/knime.desktop
