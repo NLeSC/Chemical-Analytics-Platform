@@ -1,0 +1,15 @@
+# Gollum - Gollum wiki service
+#
+# Gollum wiki serves a Github style wiki as a web server
+
+description "Gollum wiki service"
+author      "Stefan Verhoeven <s.verhoeven@esciencecenter.nl>"
+
+start on filesystem or runlevel [2345]
+stop on runlevel [!2345]
+
+setuid gollum
+
+script
+  gollum --port {{ wiki_port }} --no-edit /opt/wiki
+end script

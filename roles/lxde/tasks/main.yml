@@ -1,0 +1,4 @@
+---
+- include: install_lxde.yml
+- include: disable-screensaver.yml
+- include: autologin.yml

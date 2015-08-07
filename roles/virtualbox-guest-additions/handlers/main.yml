@@ -1,0 +1,3 @@
+---
+- name: restart x
+  service: name=lxdm state=restarted

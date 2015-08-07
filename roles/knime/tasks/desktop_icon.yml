@@ -1,0 +1,4 @@
+---
+# These tasks adds a Knime icon to the desktop
+- name: Knime desktop icon
+  template: src=knime.desktop.j2 dest=/usr/share/applications/knime.desktop

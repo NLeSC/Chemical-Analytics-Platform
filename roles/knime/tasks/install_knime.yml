@@ -1,0 +1,6 @@
+---
+# These tasks installs the knime analytics platform.
+- get_url: url=http://download.knime.org/analytics-platform/linux/knime-full_{{ knime_version }}.linux.gtk.x86_64.tar.gz dest=/opt/knime.tar.gz mode=0440
+- file: path=/opt/knime state=directory mode=0755
+- unarchive: src=/opt/knime.tar.gz dest=/opt/knime copy=no creates=/opt/knime/knime-full_{{ knime_version }}
+- file: src=/opt/knime/knime-full_{{ knime_version }}/knime dest=/usr/bin/knime state=link

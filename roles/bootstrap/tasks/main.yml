@@ -1,0 +1,7 @@
+---
+- name: Update APT package cache
+  apt: update_cache=yes
+- name: Upgrade APT to the lastest packages
+  apt: upgrade=safe
+- name: Set locale
+  command: /usr/sbin/update-locale LC_ALL=en_US.utf8

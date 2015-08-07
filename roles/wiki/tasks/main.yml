@@ -1,0 +1,3 @@
+---
+- include: install_gollum.yml
+- include: host_wiki.yml
