@@ -25,7 +25,8 @@ Requirements:
 
 Start virtual machine with
 
-    vagrant init nlesc/chemical-analytics-platform && vagrant up
+    vagrant init nlesc/chemical-analytics-platform
+    vagrant up
 
 # Build and push
 
