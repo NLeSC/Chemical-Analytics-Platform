@@ -1,5 +1,5 @@
 ---
 - name: Autologin user & use lxde as systemwide session
-  template: src=lxdm.conf.j2 dest=/etc/lxdm/lxdm.conf.mine
+  template: src=lxdm.conf.j2 dest=/etc/lxdm/lxdm.conf
   notify:
   - restart lxdm
