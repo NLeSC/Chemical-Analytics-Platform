@@ -1,17 +1,17 @@
 ---
 - name: Copy knime plugin installer
   template: src=plugin_installer.sh.j2 dest=/usr/bin/knime_plugin_installer.sh mode=u+rx
-# - name: Install RDKIT wizards integration
-#   command: /usr/bin/knime_plugin_installer.sh org.rdkit.knime.wizards.feature.feature.group
-#   args:
-#     creates: "{{ knime_root }}/plugins/org.rdkit.knime.wizards.*"
+- name: Install RDKIT wizards integration
+  command: /usr/bin/knime_plugin_installer.sh org.rdkit.knime.wizards.feature.feature.group
+  args:
+    creates: "{{ knime_root }}/plugins/org.rdkit.knime.wizards*.jar"
 - name: Install Indigo integration
   command: /usr/bin/knime_plugin_installer.sh com.ggasoftware.indigo.knime.feature.feature.group
   args:
-    creates: "{{ knime_root }}/plugins/com.ggasoftware.indigo.*"
+    creates: "{{ knime_root }}/plugins/com.ggasoftware.indigo*.jar"
 - name: Install Erlwood integration
   command: /usr/bin/knime_plugin_installer.sh org.erlwood.features.core.base.feature.group
   args:
-    creates: "{{ knime_root }}/plugins/org.erlwood.*"
-# - name: Install OpenPHACTS integration
-#   get_url: https://github.com/openphacts/OPS-Knime/raw/master/org.openphacts.utils.json_{{ ops_knime_version }}.zip dest="{{ knime_root }}/dropins/org.openphacts.utils.json_{{ ops_knime_version }}.jar"
+    creates: "{{ knime_root }}/plugins/org.erlwood*.jar"
+- name: Install OpenPHACTS integration
+  get_url: url="https://github.com/openphacts/OPS-Knime/raw/master/org.openphacts.utils.json_{{ ops_knime_version }}.zip" dest="{{ knime_root }}/dropins/org.openphacts.utils.json_{{ ops_knime_version }}.jar"
