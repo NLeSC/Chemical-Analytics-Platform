@@ -1,3 +1,5 @@
 ---
 - include: install_knime.yml
 - include: desktop_icon.yml
+- include: more_memory.yml
+- include: python_nodes.yml
