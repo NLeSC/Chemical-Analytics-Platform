@@ -50,7 +50,7 @@ Upload the box to hashicorp atlas with
 
 # References
 
-The chemical analytics platform Vagrant box is based on the myChembl Vagrant box.
+The chemical analytics platform Vagrant box is based on the myChembl Vagrant box (https://github.com/chembl/mychembl).
 
 M. Davies, M. Nowotka, G. Papadatos, F. Atkinson, G.J.P. van Westen, N Dedman, R. Ochoa and J.P. Overington  (2014)
 'myChEMBL: A Virtual Platform for Distributing Cheminformatics Tools and Open Data' Challenges 5 (334-337) ([[pdf|http://www.mdpi.com/2078-1547/5/2/334/pdf]])
