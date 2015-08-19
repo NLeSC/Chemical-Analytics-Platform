@@ -3,3 +3,4 @@
 - include: desktop_icon.yml
 - include: more_memory.yml
 - include: python_nodes.yml
+- include: plugins.yml

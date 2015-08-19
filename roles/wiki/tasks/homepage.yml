@@ -1,8 +1,0 @@
----
-- name: web browsers
-  apt: pkg={{ item }} state=latest
-  with_items:
-    - firefox
-- service: name=gollum state=started
-- name: Set firefox home page to wiki
-  template: src=homepage/firefox.syspref.js.j2 dest=/etc/firefox/syspref.js

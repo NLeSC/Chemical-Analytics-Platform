@@ -17,8 +17,3 @@
         - libchemistry-openbabel-perl
         - viewmol
         - xdrawchem
-    - name: web browsers
-      apt: pkg={{ item }} state=latest
-      with_items:
-        - firefox
-        - chromium-browser
