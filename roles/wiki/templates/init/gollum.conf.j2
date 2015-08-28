@@ -11,5 +11,8 @@ stop on runlevel [!2345]
 setuid gollum
 
 script
-  gollum --port {{ wiki_port }} --no-edit /opt/wiki
+  cd /opt/wiki
+  git reset --hard
+  git pull || true
+  gollum --port {{ wiki_port }} --no-edit .
 end script
