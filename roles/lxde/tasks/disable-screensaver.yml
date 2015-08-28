@@ -1,3 +1,0 @@
----
-- name: do not autostart xscreensaver
-  lineinfile: dest=/etc/xdg/lxsession/LXDE/autostart regexp=^@xscreensaver state=absent
