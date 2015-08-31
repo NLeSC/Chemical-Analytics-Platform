@@ -36,6 +36,7 @@ Requirements:
 * Vagrant
 * Ansible
 * Hashicorp Atlas account
+* About 55Gb of disk space for building and packaging
 
 Build box with
 
