@@ -7,8 +7,9 @@
   apt: pkg={{ item }} state=present
   with_items:
     - r-recommended
+    - r-cran-rjava
     - littler
 - name: ggplot2 package
-  shell: echo 'install.packages("ggplot2", repos="http://cran.us.r-project.org")' | R --vanilla
+  shell: echo 'install.packages("ggplot2", repos="http://{{ cran_ppa }}")' | R --vanilla
   args:
     creates: /usr/local/lib/R/site-library/ggplot2
