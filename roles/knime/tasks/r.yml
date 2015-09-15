@@ -9,7 +9,12 @@
     - r-recommended
     - r-cran-rjava
     - littler
+    - r-cran-rserve
 - name: ggplot2 package
   shell: echo 'install.packages("ggplot2", repos="http://{{ cran_ppa }}")' | R --vanilla
   args:
     creates: /usr/local/lib/R/site-library/ggplot2
+- name: Install Rserve init script
+  template: src=rserve.conf.j2 dest=/etc/init/rserve.conf
+- name: Start Rserve
+  service: name=rserve state=started enabled=yes
