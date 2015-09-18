@@ -1,0 +1,15 @@
+---
+# Adds install2.r & installGithub.r
+- name: littler
+  apt: pkg=littler state=present
+- name: devtools apt dependencies
+  apt: pkg=libcurl4-openssl-dev state=present
+- name: installGithub.r cran dependencies
+  command: install2.r -r {{ cran_url }} {{ item }} creates=/usr/local/lib/R/site-library/{{ item }}
+  with_items:
+    - docopt
+    - devtools
+- name: install2.r
+  file: src=/usr/share/doc/littler/examples/install2.r dest=/usr/bin/install2.r state=link
+- name: installGithub.r
+  file: src=/usr/share/doc/littler/examples/installGithub.r dest=/usr/bin/installGithub.r state=link

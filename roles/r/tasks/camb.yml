@@ -1,0 +1,17 @@
+---
+- name: camb apt deps
+  apt: pkg={{ item }} state=present
+  with_items:
+    - cmake
+    - libfreetype6
+    - libfreetype6-dev
+    - libcairo2-dev
+    - libgeos-dev
+- name: camb cran dependencies
+  command: install2.r -r {{ cran_url }} {{ item }} creates=/usr/local/lib/R/site-library/{{ item }}
+  with_items:
+    - rgeos
+- name: camb
+  command: installGithub.r -r {{ cran_url }} cambDI/camb/camb
+  args:
+    creates: /usr/local/lib/R/site-library/camb

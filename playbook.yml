@@ -7,6 +7,7 @@
     - wiki
     - virtualbox-guest-additions
     - fpocket
+    - r
   tasks:
     - name: chem tools
       apt: pkg={{ item }} state=latest

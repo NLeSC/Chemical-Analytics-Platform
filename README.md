@@ -15,6 +15,7 @@ The VM contains:
 - openbabel
 - viewmol
 - xdrawchem
+- camb - R based chemistry aware model builder (https://github.com/cambDI/camb)
 
 # Usage
 

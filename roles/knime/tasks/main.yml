@@ -4,4 +4,3 @@
 - include: more_memory.yml
 - include: python_nodes.yml
 - include: plugins.yml
-- include: r.yml
