@@ -5,10 +5,11 @@
 - name: devtools apt dependencies
   apt: pkg=libcurl4-openssl-dev state=present
 - name: installGithub.r cran dependencies
-  command: install2.r -r {{ cran_url }} {{ item }} creates=/usr/local/lib/R/site-library/{{ item }}
-  with_items:
-    - docopt
-    - devtools
+  shell: echo 'install.packages(c("docopt", "devtools"), repos="{{ cran_url }}")' | R --vanilla
+  args:
+    creates:
+      - /usr/local/lib/R/site-library/docopt
+      - /usr/local/lib/R/site-library/devtools
 - name: install2.r
   file: src=/usr/share/doc/littler/examples/install2.r dest=/usr/bin/install2.r state=link
 - name: installGithub.r
