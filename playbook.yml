@@ -18,3 +18,7 @@
         - libchemistry-openbabel-perl
         - viewmol
         - xdrawchem
+    - name: apt clean
+      command: apt-get clean -y
+    - name: zerofree
+      shell: dd if=/dev/zero of=/EMPTY bs=100M || rm -f /EMPTY || sync
