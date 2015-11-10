@@ -12,6 +12,6 @@
   with_items:
     - rgeos
 - name: camb
-  command: installGithub.r -r {{ cran_url }} cambDI/camb/camb
+  command: installGithub.r cambDI/camb/camb
   args:
     creates: /usr/local/lib/R/site-library/camb
