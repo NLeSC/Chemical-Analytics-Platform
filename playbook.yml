@@ -8,6 +8,7 @@
     - virtualbox-guest-additions
     - fpocket
     - r
+    - self-upgrade
   tasks:
     - name: chem tools
       apt: pkg={{ item }} state=latest
