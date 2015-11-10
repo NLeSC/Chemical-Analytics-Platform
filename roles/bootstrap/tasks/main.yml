@@ -9,6 +9,8 @@
   apt: upgrade=full
 - name: Set locale
   command: /usr/sbin/update-locale LC_ALL=en_US.utf8
+- name: create /opt directory
+  file: path=/opt state=directory
 - name: Rebooting machine so new kernel is active
   command: shutdown -r now removes=/var/run/reboot-required
   async: 0
