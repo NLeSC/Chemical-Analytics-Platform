@@ -4,5 +4,6 @@
   with_items:
     - python-pandas
     - python-protobuf
+    - python-pip
 - name: python knime autocomplete
   pip: name=jedi
