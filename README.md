@@ -1,4 +1,6 @@
-# Chemical-Analytics-Platform
+# Chemical-Analytics-Platform Virtual Machine
+
+[![Build Status](https://travis-ci.org/NLeSC/Chemical-Analytics-Platform.svg?branch=master)](https://travis-ci.org/NLeSC/Chemical-Analytics-Platform)
 
 Scripts to create a Vagrant box using packer and ansible.
 
