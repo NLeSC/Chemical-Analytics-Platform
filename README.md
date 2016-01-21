@@ -36,7 +36,7 @@ packer build packer.json
 Add box to Vagrant with
 
 ```
-vagrant box remove --all nlesc/chemical-analytics-platform
+vagrant box remove --force --all nlesc/chemical-analytics-platform
 vagrant box add --name nlesc/chemical-analytics-platform packer_virtualbox-iso_virtualbox.box
 ```
 
