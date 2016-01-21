@@ -35,7 +35,9 @@
             ["modifyvm", "{{.Name}}", "--accelerate3d", "on"],
             ["modifyvm", "{{.Name}}", "--vram", "128"]
         ],
-        "disk_size": 60000
+        "disk_size": 60000,
+        "format": "ova",
+        "vm_name": "cap"
     }],
     "_comment": "Asible provisioner is repeated because a reboot is triggered to activate the new kernel",
     "provisioners": [{
