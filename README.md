@@ -29,7 +29,7 @@ Requirements:
   * Make sure temporary directory (/tmp by default on Linux) has enough space. Use TMPDIR environment variable to overwrite default location
 
 ```
-packer build packer.json
+packer build -force packer.json
 ```
 # Test
 
