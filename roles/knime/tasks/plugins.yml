@@ -1,6 +1,8 @@
 ---
 - name: Copy knime plugin installer
-  template: src=plugin_installer.sh.j2 dest=/usr/bin/knime_plugin_installer.sh mode=u+rx
+  template: src=plugin_installer.sh.j2 dest=/usr/bin/knime_plugin_installer.sh mode=ugo+rx
+- name: Copy knime plugin uninstaller
+  template: src=plugin_uninstaller.sh.j2 dest=/usr/bin/knime_plugin_uninstaller.sh mode=ugo+rx
 - name: Install RDKIT wizards integration
   command: /usr/bin/knime_plugin_installer.sh org.rdkit.knime.wizards.feature.feature.group
   args:
