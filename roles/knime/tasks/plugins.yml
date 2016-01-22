@@ -4,7 +4,7 @@
 - name: Copy knime plugin uninstaller
   template: src=plugin_uninstaller.sh.j2 dest=/usr/bin/knime_plugin_uninstaller.sh mode=ugo+rx
 - name: Install RDKIT wizards integration
-  command: /usr/bin/knime_plugin_installer.sh org.rdkit.knime.wizards.feature.feature.group
+  command: /usr/bin/knime_plugin_installer.sh org.rdkit.knime.wizards.feature.feature.group {{ knime_repositories }}
   args:
     creates: "{{ knime_root }}/org.rdkit.knime.wizards.feature.feature.group.installed"
 - name: Install OpenPHACTS integration
