@@ -9,6 +9,6 @@
 - include: python_nodes.yml
 - include: plugins.yml
 - name: Remove old Knime installations
-  file: path=/opt/knime/knime-full_{{ item }} with-items="{{ knime_old_versions }}" state=absent
+  file: path={{ item }} with-items="{{ knime_old_versions }}" state=absent
 - name: Vagrant owns Knime
   file: path='{{ knime_root }}' state=directory recurse=yes owner=vagrant group=vagrant
