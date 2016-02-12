@@ -55,7 +55,7 @@
         "inline": ["echo '{{user `ssh_name`}} ALL=(ALL) NOPASSWD: ALL' >> /etc/sudoers"]
     }, {
         "type": "ansible-local",
-        "extra_arguments": ["--become"],
+        "extra_arguments": ["--become", "--extra-vars", "run_zerofree=True"],
         "playbook_file": "playbook.yml",
         "role_paths": [
             "roles/bootstrap", "roles/fpocket", "roles/knime", "roles/lxde",
@@ -65,7 +65,7 @@
     }, {
         "type": "ansible-local",
         "pause_before": "20s",
-        "extra_arguments": ["--become"],
+        "extra_arguments": ["--become", "--extra-vars", "run_zerofree=True"],
         "playbook_file": "playbook.yml",
         "role_paths": [
             "roles/bootstrap", "roles/fpocket", "roles/knime", "roles/lxde",
