@@ -10,3 +10,12 @@ echo 'Machine will be reboot when required, start this script again to continue 
 cd /opt/playbook
 git pull
 ansible-playbook playbook.yml
+
+if [ -d /etc/vagrant_upgrade.d ]; then
+  for i in /etc/vagrant_upgrade.d/*.sh; do
+    if [ -r $i ]; then
+      . $i
+    fi
+  done
+  unset i
+fi
