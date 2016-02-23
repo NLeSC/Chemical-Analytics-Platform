@@ -7,7 +7,7 @@
         "type": "virtualbox-iso",
         "guest_os_type": "Ubuntu_64",
         "iso_url": "http://nl.archive.ubuntu.com/ubuntu-cdimages/14.04/release/ubuntu-14.04.4-server-amd64+mac.iso",
-        "iso_checksum": "3b256b334233dd1537ed92ebd480e167",
+        "iso_checksum": "e3689767eaca273077cb49ff34c2e6b2",
         "iso_checksum_type": "md5",
         "ssh_username": "{{user `ssh_name`}}",
         "ssh_password": "{{user `ssh_pass`}}",
