@@ -6,5 +6,7 @@
   file: path=/etc/ansible state=directory
 - name: ansible hosts file
   copy: src=ansible.hosts dest=/etc/ansible/hosts
+- name: create /etc/vagrant_upgrade.d directory
+  file: path=/etc/vagrant_upgrade.d state=directory
 - name: upgrade script
   copy: src=vagrant_upgrade dest=/usr/sbin/vagrant_upgrade mode="u=rwx,g=rx,o=rx"
