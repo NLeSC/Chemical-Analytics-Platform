@@ -11,7 +11,7 @@
   mount: src=/opt/VBoxGuestAdditions_{{ virtualbox_version }}.iso name=/media/cdrom state=mounted fstype=iso9660 opts=loop,ro
 - name: Install
   # installer always returns bad exit code, so ignore
-  shell: /bin/sh /media/cdrom/VBoxLinuxAdditions.run || /bin/true creates={{ item }}
+  shell: /bin/sh /media/cdrom/VBoxLinuxAdditions.run --nox11 || /bin/true creates={{ item }}
   with_items:
   - /opt/VBoxGuestAdditions-{{ virtualbox_version }}
   - /lib/modules/{{ ansible_kernel }}/updates/dkms/vboxguest.ko
