@@ -4,6 +4,11 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
 
+### Changed
+
+* Bump Knime to v3.1.2
+* Bumped Virtualbox Guest Additions to v5.0.16
+
 ## 0.7.2 - 2016-02-24
 
 ### Changed
