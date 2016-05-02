@@ -3,6 +3,8 @@
   apt: update_cache=yes
 - name: Install reboot notifier
   apt: name=update-notifier-common
+- name: Install aptitude
+  apt: name=aptitude
 - name: Upgrade APT to the lastest packages
   apt: upgrade=full
 - name: Set locale
