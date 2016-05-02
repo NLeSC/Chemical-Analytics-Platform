@@ -6,9 +6,9 @@
     "builders": [{
         "type": "virtualbox-iso",
         "guest_os_type": "Ubuntu_64",
-        "iso_url": "http://nl.archive.ubuntu.com/ubuntu-cdimages/14.04/release/ubuntu-14.04.4-server-amd64+mac.iso",
-        "iso_checksum": "e3689767eaca273077cb49ff34c2e6b2",
-        "iso_checksum_type": "md5",
+        "iso_url": "http://de.releases.ubuntu.com/16.04/ubuntu-16.04-server-amd64.iso",
+        "iso_checksum": "b8b172cbdf04f5ff8adc8c2c1b4007ccf66f00fc6a324a6da6eba67de71746f6",
+        "iso_checksum_type": "sha256",
         "ssh_username": "{{user `ssh_name`}}",
         "ssh_password": "{{user `ssh_pass`}}",
         "shutdown_command": "echo {{user `ssh_pass`}} | sudo -S shutdown -P now",
@@ -18,7 +18,10 @@
             "preseed.cfg"
         ],
         "boot_command": [
-            "<esc><esc><enter><wait>",
+	    "<enter><wait><f6><esc><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs>",
+            "<bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs>",
+            "<bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs>",
+            "<bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs>",
             "/install/vmlinuz ",
             "preseed/file=/floppy/preseed.cfg ",
             "debian-installer=en_US auto locale=en_US kbd-chooser/method=us ",
