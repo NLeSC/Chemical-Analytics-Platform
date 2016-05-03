@@ -5,6 +5,6 @@
   with_items:
     - r-cran-rserve
 - name: Install Rserve init script
-  template: src=rserve.conf.j2 dest=/etc/init/rserve.conf
+  template: src=rserve.service.j2 dest=/lib/systemd/system/rserve.service
 - name: Start Rserve
   service: name=rserve state=started enabled=yes
