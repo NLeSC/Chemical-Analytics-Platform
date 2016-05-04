@@ -1,3 +1,5 @@
+- name: Install reboot notifier
+  apt: name=git
 - name: github repo
   git: repo="{{ repo_clone_url }}" dest=/opt/playbook
 - name: ansible
