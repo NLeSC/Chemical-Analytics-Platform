@@ -1,0 +1,10 @@
+---
+- name: chem tools
+  apt: pkg={{ item }} state=latest
+  with_items:
+    - openbabel
+    - openbabel-gui
+    - python-openbabel
+    - libchemistry-openbabel-perl
+    - viewmol
+    - xdrawchem

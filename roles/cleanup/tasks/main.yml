@@ -1,0 +1,7 @@
+---
+- name: apt clean
+  command: apt-get clean -y
+# Reclaim empty space so virtual disk becomes smaller
+- name: Zerofree
+  shell: dd if=/dev/zero of=/EMPTY bs=100M || rm -f /EMPTY || sync
+  when: run_zerofree

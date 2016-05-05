@@ -11,11 +11,11 @@
   command: /usr/sbin/update-locale LC_ALL=en_US.utf8
 - name: Create /opt directory
   file: path=/opt state=directory
-- name: Check reboot is required
+- name: Check if reboot is required
   stat: path=/var/run/reboot-required
   register: reboot_required
 - include: reboot.yml
-  when: reboot_required.stat.islnk is defined
+  when: reboot_required.stat.islnk is defined and not run_zerofree
 - name: Create ~/.ssh directory
   file: path=/home/vagrant/.ssh state=directory mode="0700" owner=vagrant group=vagrant
 - name: Add insecure vagrant key
