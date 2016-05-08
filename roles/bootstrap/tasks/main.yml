@@ -1,4 +1,7 @@
 ---
+- name: Distro version
+  fail: msg="Distro has wrong version, please upgrade, see https://github.com/NLeSC/Chemical-Analytics-Platform/wiki/Cheatsheet#replacing-vm"
+  when: ansible_distribution_version != distribution_version
 - name: Update APT package cache
   apt: update_cache=yes
 - name: Install reboot notifier
