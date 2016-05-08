@@ -34,12 +34,12 @@
     chdir: /opt/rdkit/rdkit-Release_{{ rdkit_version }}/build
     creates: /opt/rdkit/rdkit-Release_{{ rdkit_version }}/build/Makefile
 - name: Build & Install
-  command: make install
+  command: make install -j {{ ansible_processor_cores }}
   args:
     chdir: /opt/rdkit/rdkit-Release_{{ rdkit_version }}/build
     creates: /usr/local/lib/libRDGeneral.so.1.{{ rdkit_version|replace("_", ".") }}
 - name: Postgresql cartridge
-  shell: RDBASE=/opt/rdkit/rdkit-Release_{{ rdkit_version }} USE_INCHI=1 make install
+  shell: RDBASE=/opt/rdkit/rdkit-Release_{{ rdkit_version }} USE_INCHI=1 make install -j {{ ansible_processor_cores }}
   args:
     chdir: /opt/rdkit/rdkit-Release_{{ rdkit_version }}/Code/PgSQL/rdkit
     creates: /usr/lib/postgresql/9.5/lib/rdkit.so

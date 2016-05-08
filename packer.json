@@ -32,6 +32,7 @@
             "initrd=/install/initrd.gz -- <enter>"
         ],
         "vboxmanage": [
+            ["modifyvm", "{{.Name}}", "--cpus", "3"],
             ["modifyvm", "{{.Name}}", "--memory", "2048"],
             ["modifyvm", "{{.Name}}", "--clipboard", "bidirectional"],
             ["modifyvm", "{{.Name}}", "--draganddrop", "bidirectional"],

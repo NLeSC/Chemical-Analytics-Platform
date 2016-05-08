@@ -9,7 +9,7 @@
 - name: Patching fpocket makefile (See http://sourceforge.net/p/fpocket/mailman/message/28785185/)
   replace: dest=/opt/fpocket2/makefile regexp='\$\(LINKER\) \$\(LFLAGS\) \$\^ -o \$@' replace='$(LINKER) $^ -o $@ $(LFLAGS)'
 - name: Making fpocket
-  command: /usr/bin/make
+  command: /usr/bin/make -j {{ ansible_processor_cores }}
   args:
     chdir: /opt/fpocket2
     creates: /opt/fpocket2/bin/fpocket
