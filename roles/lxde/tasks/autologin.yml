@@ -3,3 +3,5 @@
   template: src=autologin.conf.j2 dest=/etc/lightdm/lightdm.conf
   notify:
   - restart lightdm
+- name: Vagrant does not need password to login
+  user: name='{{ autologin_user }}' append=yes groups=nopasswdlogin
