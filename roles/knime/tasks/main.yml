@@ -8,6 +8,7 @@
 - include: more_memory.yml
 - include: python_nodes.yml
 - include: plugins.yml
+- include: xenialworkaround.yml
 - name: Remove old Knime installations
   file: path={{ item }} state=absent
   with_items: "{{ knime_old_versions }}"

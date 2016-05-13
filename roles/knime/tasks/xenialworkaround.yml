@@ -1,0 +1,4 @@
+- name: Knime is very slow workaround (see https://bugs.launchpad.net/ubuntu/+source/java-common/+bug/1552764)
+  lineinfile: dest=/opt/knime/knime-full_{{ knime_version }}/knime.ini line='--launcher.GTK_version 2' insertbefore='-vmargs'
+- name: Install swt browser widget v2 for knime internal browser
+  apt: pkg=libwebkitgtk-1.0-0 state=present
