@@ -2,8 +2,8 @@
 - hosts: all
   roles:
     - bootstrap
-    - knime
     - lxde
+    - knime
     - wiki
     - virtualbox-guest-additions
     - fpocket

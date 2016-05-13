@@ -4,11 +4,11 @@
   register: knime_installed
 - include: install_knime.yml
   when: knime_installed.stat.islnk is not defined
+- include: xenialworkaround.yml
 - include: desktop_icon.yml
 - include: more_memory.yml
 - include: python_nodes.yml
 - include: plugins.yml
-- include: xenialworkaround.yml
 - name: Remove old Knime installations
   file: path={{ item }} state=absent
   with_items: "{{ knime_old_versions }}"
