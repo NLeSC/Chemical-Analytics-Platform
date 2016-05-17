@@ -6,6 +6,10 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 ## 0.8.0 - 2016-05-04
 
+### Added
+
+* Check distro version, give upgrade instructions when provision scripts require different distro version
+
 ### Changed
 
 * Upgraded RDKit to 2016.03.1
