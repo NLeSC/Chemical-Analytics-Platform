@@ -4,10 +4,10 @@
 # Additionally creates rdkit tables and read-only db user
 #
 # Usage:
-# create_chembldb <chembl_version>
+# chembldb_create <chembl_version>
 #
 # Example:
-# create_chembldb {{ chembl_version }}
+# chembldb_create {{ chembl_version }}
 
 VERSION=${1:-{{ chembl_version }}}
 DB=chembl_${VERSION}
