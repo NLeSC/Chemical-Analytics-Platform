@@ -50,7 +50,7 @@
         "inline": [
             "apt-get update",
             "apt-get install -y python-pip python-dev libffi-dev libssl-dev",
-            "pip install ansible"
+            "pip install ansible==2.0.2.0"
         ]
     }, {
         "type": "shell",
