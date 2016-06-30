@@ -4,6 +4,10 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
 
+### Changed
+
+* Upgraded Virtualbox Guest Additions to v5.0.24
+
 ## 0.8.0 - 2016-05-17
 
 ### Added
