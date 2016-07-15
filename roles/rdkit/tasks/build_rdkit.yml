@@ -29,7 +29,7 @@
 - name: Build directory
   file: path=/opt/rdkit/rdkit-Release_{{ rdkit_version }}/build state=directory
 - name: Configure
-  command: cmake -DRDK_BUILD_INCHI_SUPPORT=ON -DRDK_INSTALL_INTREE=OFF ..
+  command: cmake -DRDK_BUILD_INCHI_SUPPORT=ON -DRDK_INSTALL_INTREE=OFF -DRDK_BUILD_PGSQL=ON -DPostgreSQL_ROOT=/usr ..
   args:
     chdir: /opt/rdkit/rdkit-Release_{{ rdkit_version }}/build
     creates: /opt/rdkit/rdkit-Release_{{ rdkit_version }}/build/Makefile
@@ -39,9 +39,9 @@
     chdir: /opt/rdkit/rdkit-Release_{{ rdkit_version }}/build
     creates: /usr/local/lib/libRDGeneral.so.1.{{ rdkit_version|replace("_", ".") }}
 - name: Postgresql cartridge
-  shell: RDBASE=/opt/rdkit/rdkit-Release_{{ rdkit_version }} USE_INCHI=1 make install -j {{ ansible_processor_cores }}
+  command: /bin/sh Code/PgSQL/rdkit/pgsql_install.sh
   args:
-    chdir: /opt/rdkit/rdkit-Release_{{ rdkit_version }}/Code/PgSQL/rdkit
+    chdir: /opt/rdkit/rdkit-Release_{{ rdkit_version }}/build
     creates: /usr/lib/postgresql/9.5/lib/rdkit.so
 - name: Restart postgresql
   service: name=postgresql state=restarted
