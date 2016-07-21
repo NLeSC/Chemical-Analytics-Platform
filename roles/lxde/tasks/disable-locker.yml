@@ -1,7 +1,7 @@
 ---
 - name: Remove screen locker
   file: path=/etc/xdg/autostart/light-locker.desktop state=absent
-  notify:
-  - restart lightdm
+#  notify:
+#  - restart lightdm
 - name: Disable screensaver
   copy: src=xscreensaver dest=/usr/share/lubuntu/xscreensaver/xscreensaver

@@ -18,7 +18,7 @@
   - /lib/modules/{{ ansible_kernel }}/updates/dkms/vboxsf.ko
   - /lib/modules/{{ ansible_kernel }}/updates/dkms/vboxvideo.ko
   - /usr/lib/xorg/modules/drivers/vboxvideo_drv.so
-  notify:
-  - restart x
+#  notify:
+#  - restart x
 - name: Unmount iso
   mount: src=/opt/VBoxGuestAdditions_{{ virtualbox_version }}.iso name=/media/cdrom state=unmounted fstype=iso9660
