@@ -4,6 +4,8 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
 
+## 0.8.2 - 2016-09-04
+
 ### Added
 
 * EU-OPENSCREEN KNIME nodes
