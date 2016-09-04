@@ -4,6 +4,10 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
 
+### Added
+
+* EU-OPENSCREEN KNIME nodes
+
 ### Changed
 
 * Upgraded Virtualbox Guest Additions to v5.1.2

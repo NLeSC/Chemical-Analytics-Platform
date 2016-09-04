@@ -14,16 +14,14 @@
         "shutdown_command": "echo {{user `ssh_pass`}} | sudo -S shutdown -P now",
         "guest_additions_mode": "disable",
         "boot_wait": "5s",
-        "floppy_files": [
-            "preseed.cfg"
-        ],
+        "http_directory": ".",
         "boot_command": [
             "<enter><wait><f6><esc><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs>",
             "<bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs>",
             "<bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs>",
             "<bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs>",
             "/install/vmlinuz ",
-            "preseed/file=/floppy/preseed.cfg ",
+            "preseed/url=http://{{ .HTTPIP }}:{{ .HTTPPort }}/preseed.cfg ",
             "debian-installer=en_US auto locale=en_US kbd-chooser/method=us ",
             "hostname={{.Name}} ",
             "fb=false debconf/frontend=noninteractive ",
@@ -32,12 +30,16 @@
             "initrd=/install/initrd.gz -- <enter>"
         ],
         "vboxmanage": [
-            ["modifyvm", "{{.Name}}", "--cpus", "3"],
-            ["modifyvm", "{{.Name}}", "--memory", "2048"],
+            ["modifyvm", "{{.Name}}", "--cpus", "4"],
+            ["modifyvm", "{{.Name}}", "--memory", "4096"],
             ["modifyvm", "{{.Name}}", "--clipboard", "bidirectional"],
             ["modifyvm", "{{.Name}}", "--draganddrop", "bidirectional"],
             ["modifyvm", "{{.Name}}", "--accelerate3d", "on"],
             ["modifyvm", "{{.Name}}", "--vram", "128"]
+        ],
+        "vboxmanage_post": [
+            ["modifyvm", "{{.Name}}", "--cpus", "2"],
+            ["modifyvm", "{{.Name}}", "--memory", "2048"]
         ],
         "disk_size": 60000,
         "format": "ova",
