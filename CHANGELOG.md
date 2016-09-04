@@ -10,8 +10,8 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 ### Changed
 
-* Upgraded Virtualbox Guest Additions to v5.1.2
-* Upgraded RDKit to 2016.03.2
+* Upgraded Virtualbox Guest Additions to v5.1.4
+* Upgraded RDKit to 2016.03.4
 * Upgraded Knime to v3.2.1
 * Upgraded Ubuntu to 16.04.1
 

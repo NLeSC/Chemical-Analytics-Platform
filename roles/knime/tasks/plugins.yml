@@ -10,7 +10,7 @@
 - name: Install Indigo integration
   command: /usr/bin/knime_plugin_installer.sh com.epam.indigo.knime.feature.feature.group {{ knime_repositories }}
   args:
-    creates: "{{ knime_root }}/com.ggasoftware.indigo.knime.feature.feature.group.installed"
+    creates: "{{ knime_root }}/com.epam.indigo.knime.feature.feature.group.installed"
 - name: Install Erlwood integration
   command: /usr/bin/knime_plugin_installer.sh org.erlwood.features.core.base.feature.group {{ knime_repositories }}
   args:
