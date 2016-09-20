@@ -13,7 +13,7 @@ Vagrant.configure(2) do |config|
 
     # Every Vagrant development environment requires a box. You can search for
     # boxes at https://atlas.hashicorp.com/search.
-    config.vm.box = 'chembl/mychembl_20_ubuntu'
+    config.vm.box = 'ubuntu/xenial64'
 
     # this is a box and should not have its key replaced
     config.ssh.insert_key = false

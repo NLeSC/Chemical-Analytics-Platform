@@ -4,6 +4,13 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
 
+## 0.8.3 - 2016-09-20
+
+### Changed
+
+* Upgraded Virtualbox Guest Additions to v5.1.6
+* Upgraded to Chembl to v22
+
 ## 0.8.2 - 2016-09-04
 
 ### Added
