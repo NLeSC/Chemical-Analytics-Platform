@@ -4,6 +4,12 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
 
+### Changed
+
+* Upgraded Virtualbox Guest Additions to v5.1.14
+* Upgraded RDKit to 2016.03.4
+* Upgraded Knime to v3.2.1
+
 ## 0.8.3 - 2016-09-20
 
 ### Changed
