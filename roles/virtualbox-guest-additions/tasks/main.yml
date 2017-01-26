@@ -14,9 +14,9 @@
   shell: /bin/sh /media/cdrom/VBoxLinuxAdditions.run --nox11 || /bin/true creates={{ item }}
   with_items:
   - /opt/VBoxGuestAdditions-{{ virtualbox_version }}
-  - /lib/modules/{{ ansible_kernel }}/updates/dkms/vboxguest.ko
-  - /lib/modules/{{ ansible_kernel }}/updates/dkms/vboxsf.ko
-  - /lib/modules/{{ ansible_kernel }}/updates/dkms/vboxvideo.ko
+  - /lib/modules/{{ ansible_kernel }}/misc/vboxguest.ko
+  - /lib/modules/{{ ansible_kernel }}/misc/vboxsf.ko
+  - /lib/modules/{{ ansible_kernel }}/misc/vboxvideo.ko
   - /usr/lib/xorg/modules/drivers/vboxvideo_drv.so
 #  notify:
 #  - restart x
