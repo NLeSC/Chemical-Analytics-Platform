@@ -26,6 +26,7 @@ Requirements:
 
 * VirtualBox, https://www.virtualbox.org/
 * Vagrant, https://www.vagrantup.com/
+* Docker, https://www.docker.com/
 * Packer, https://packer.io
 * Enough disk space (15Gb)
   * Make sure temporary directory (/tmp by default on Linux) has enough space. Use TMPDIR environment variable to overwrite default location
@@ -72,3 +73,11 @@ The ova file produced during build can be used as as starting point in a another
 
 To give another project also [self upgrade](https://github.com/NLeSC/Chemical-Analytics-Platform/wiki/Cheatsheet#performing-a-self-upgrade) capabilities add it's upgrade script to
  `/etc/vagrant_upgrade.d` directory.
+
+# Run as Docker container
+
+Besides vagrant box also `3dechem/3dechem` Docker image is constructed.
+```
+docker run -d -p 6080:6080 3dechem/3dechem
+```
+Open `http://localhost:6080/vnc_auto.html` in web browser and connect with password `vagrant`.

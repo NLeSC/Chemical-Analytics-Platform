@@ -12,3 +12,4 @@
   - restart gollum
 - name: Start Gollum
   service: name=gollum state=started enabled=yes
+  when: (not build_type) or (build_type != 'docker')

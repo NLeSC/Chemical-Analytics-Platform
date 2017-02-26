@@ -1,11 +1,14 @@
 ---
 - hosts: all
+  vars:
+    build_type: local
   roles:
     - bootstrap
     - lxde
     - knime
     - wiki
-    - virtualbox-guest-additions
+    - role: virtualbox-guest-additions
+      when: build_type == 'virtualbox-iso'
     - fpocket
     - r
     - self-upgrade
@@ -13,4 +16,9 @@
     - rdkit
     - chembl
     - chemtools
-    - cleanup
+    - role: novnc
+      when: build_type == 'docker'
+    - role: entrypoint
+      when: build_type == 'docker'
+    - role: cleanup
+      when: build_type == 'virtualbox-iso'

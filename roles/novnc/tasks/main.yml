@@ -1,0 +1,33 @@
+---
+- name: noVNC
+  apt: name={{ item }}
+  with_items:
+  - novnc
+  - websockify
+  - tightvncserver  # Replace with TurboVNC or TigerVNC if needed
+- name: ~/.vnc
+  file:
+    path: /home/vagrant/.vnc
+    owner: vagrant
+    group: vagrant
+    state: directory
+- name: VNC password
+  shell: echo vagrant | tightvncpasswd -f > passwd
+  args:
+    chdir: /home/vagrant/.vnc
+    creates: passwd
+- name: ~/.vnc/passwd permissions
+  file:
+    path: /home/vagrant/.vnc/passwd
+    owner: vagrant
+    group: vagrant
+    mode: 0600
+- name: tightvncserver.sh
+  copy:
+    src: tightvncserver.sh
+    dest: /usr/bin/tightvncserver.sh
+    mode: u=rx,g=rx,o=rx
+- name: Launch terminal when LXDE starts
+  blockinfile:
+    dest: /etc/xdg/lxsession/LXDE/autostart
+    block: '@lxterminal -l'

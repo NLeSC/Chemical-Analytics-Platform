@@ -1,0 +1,8 @@
+---
+- name: entrypoint.sh
+  copy:
+    src: entrypoint.sh
+    dest: /entrypoint.sh
+    mode: u=rx,g=rx,o=rx
+- name: Install gosu
+  apt: name=gosu

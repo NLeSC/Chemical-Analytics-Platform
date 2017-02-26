@@ -1,6 +1,8 @@
 ---
 - name: Postgresql server & client
   apt: pkg=postgresql state=latest
+- name: Started server
+  command: /etc/init.d/postgresql start
 - name: Create postgresql user
   shell: sudo -u postgres createuser {{postgresql_role}} && touch /etc/postgresql/created_user
   args:

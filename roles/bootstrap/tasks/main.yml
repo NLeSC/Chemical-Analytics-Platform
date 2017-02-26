@@ -10,6 +10,10 @@
   apt: name=aptitude
 - name: Upgrade APT to the lastest packages
   apt: upgrade=full
+- name: Locales
+  apt: name=locales
+- name: Compile locale
+  command: localedef -i en_US -c -f UTF-8 -A /usr/share/locale/locale.alias en_US.UTF-8
 - name: Set locale
   command: /usr/sbin/update-locale LC_ALL=en_US.utf8
 - name: Create /opt directory
@@ -19,6 +23,9 @@
   register: reboot_required
 - include: reboot.yml
   when: reboot_required.stat.islnk is defined and not run_zerofree
+- name: Vagrant user
+  # password == vagrant
+  user: name=vagrant home=/home/vagrant shell=/bin/bash password='$1$xyz$37MAoBhNLQIFVbtUcfCUc/'
 - name: Create ~/.ssh directory
   file: path=/home/vagrant/.ssh state=directory mode="0700" owner=vagrant group=vagrant
 - name: Add insecure vagrant key
