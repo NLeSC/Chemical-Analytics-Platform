@@ -16,6 +16,7 @@
   with_items:
     - rgeos
     - devtools
+    - remotes
 - name: camb
   command: installGithub.r cambDI/camb/camb
   args:
