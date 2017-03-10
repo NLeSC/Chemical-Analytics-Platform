@@ -4,11 +4,14 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
 
+## 0.8.4 - 2017-03-10
+
 ### Changed
 
-* Upgraded Virtualbox Guest Additions to v5.1.14
-* Upgraded RDKit to 2016.03.4
-* Upgraded Knime to v3.2.1
+* Upgraded Virtualbox Guest Additions to v5.1.16
+* Upgraded RDKit to 2016_09_4
+* Upgraded KNIME to v3.3.1
+* Erlwood nodes are now part of KNIME distro
 
 ## 0.8.3 - 2016-09-20
 
@@ -27,7 +30,7 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 * Upgraded Virtualbox Guest Additions to v5.1.4
 * Upgraded RDKit to 2016.03.4
-* Upgraded Knime to v3.2.1
+* Upgraded KNIME to v3.2.1
 * Upgraded Ubuntu to 16.04.1
 
 ## 0.8.0 - 2016-05-17
@@ -40,7 +43,7 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 * Upgraded RDKit to 2016.03.1
 * Upgraded Ubuntu to 16.04
-* Upgraded Knime to v3.1.2
+* Upgraded KNIME to v3.1.2
 * Upgraded Virtualbox Guest Additions to v5.0.20
 
 ## 0.7.2 - 2016-02-24
@@ -48,17 +51,17 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 ### Changed
 
 - Start from Ubuntu 14.04.4 instead of 14.04.3
-- Upgraded Knime to version 3.1.
+- Upgraded KNIME to version 3.1.
 
 ## 0.7.1 - 2016-01-22
 
 ### Changed
 
-- Updated Knime update sits
+- Updated KNIME update sits
 
 ### Fixed
 
-- Unable to update Knime as vagrant user
+- Unable to update KNIME as vagrant user
 
 ## 0.7.0 - 2016-01-20
 
@@ -78,7 +81,7 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 ### Changed
 
-- Updated Knime to 3.1
+- Updated KNIME to 3.1
 - Updated Virtualbox Guest Additions to 5.0.12
 
 ## 0.6.0 - 2016-11-10
