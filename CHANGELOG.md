@@ -4,6 +4,10 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
 
+### Changed
+
+* Upgraded to Chembl to v23
+
 ## 0.8.4 - 2017-03-10
 
 ### Changed
