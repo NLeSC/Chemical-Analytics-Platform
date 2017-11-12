@@ -1,91 +1,130 @@
 {
-    "variables": {
-        "ssh_name": "vagrant",
-        "ssh_pass": "vagrant"
+  "variables": {
+    "ssh_name": "vagrant",
+    "ssh_pass": "vagrant"
+  },
+  "builders": [
+    {
+      "type": "virtualbox-iso",
+      "guest_os_type": "Ubuntu_64",
+      "iso_url":
+        "http://de.releases.ubuntu.com/16.04.3/ubuntu-16.04.3-server-amd64.iso",
+      "iso_checksum":
+        "a06cd926f5855d4f21fb4bc9978a35312f815fbda0d0ef7fdc846861f4fc4600",
+      "iso_checksum_type": "sha256",
+      "ssh_username": "{{user `ssh_name`}}",
+      "ssh_password": "{{user `ssh_pass`}}",
+      "shutdown_command": "echo {{user `ssh_pass`}} | sudo -S shutdown -P now",
+      "guest_additions_mode": "disable",
+      "boot_wait": "5s",
+      "http_directory": ".",
+      "boot_command": [
+        "<enter><wait><f6><esc><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs>",
+        "<bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs>",
+        "<bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs>",
+        "<bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs>",
+        "/install/vmlinuz ",
+        "preseed/url=http://{{ .HTTPIP }}:{{ .HTTPPort }}/preseed.cfg ",
+        "debian-installer=en_US auto locale=en_US kbd-chooser/method=us ",
+        "hostname={{.Name}} ",
+        "fb=false debconf/frontend=noninteractive ",
+        "keyboard-configuration/modelcode=SKIP keyboard-configuration/layout=USA ",
+        "keyboard-configuration/variant=USA console-setup/ask_detect=false ",
+        "initrd=/install/initrd.gz -- <enter>"
+      ],
+      "vboxmanage": [
+        ["modifyvm", "{{.Name}}", "--cpus", "4"],
+        ["modifyvm", "{{.Name}}", "--memory", "4096"],
+        ["modifyvm", "{{.Name}}", "--clipboard", "bidirectional"],
+        ["modifyvm", "{{.Name}}", "--draganddrop", "bidirectional"],
+        ["modifyvm", "{{.Name}}", "--accelerate3d", "on"],
+        ["modifyvm", "{{.Name}}", "--vram", "128"]
+      ],
+      "vboxmanage_post": [
+        ["modifyvm", "{{.Name}}", "--cpus", "2"],
+        ["modifyvm", "{{.Name}}", "--memory", "2048"]
+      ],
+      "post_shutdown_delay": "120s",
+      "disk_size": 60000,
+      "format": "ova",
+      "vm_name": "cap"
+    }
+  ],
+  "_comment":
+    "Asible provisioner is repeated because a reboot is triggered to activate the new kernel",
+  "provisioners": [
+    {
+      "type": "shell",
+      "execute_command":
+        "echo {{user `ssh_pass`}} | {{ .Vars }} sudo -E -S sh '{{ .Path }}'",
+      "inline": [
+        "apt-get update",
+        "apt-get install -y python-pip python-dev libffi-dev libssl-dev",
+        "pip install ansible==2.0.2.0"
+      ]
     },
-    "builders": [{
-        "type": "virtualbox-iso",
-        "guest_os_type": "Ubuntu_64",
-        "iso_url": "http://de.releases.ubuntu.com/16.04/ubuntu-16.04.1-server-amd64.iso",
-        "iso_checksum": "29a8b9009509b39d542ecb229787cdf48f05e739a932289de9e9858d7c487c80",
-        "iso_checksum_type": "sha256",
-        "ssh_username": "{{user `ssh_name`}}",
-        "ssh_password": "{{user `ssh_pass`}}",
-        "shutdown_command": "echo {{user `ssh_pass`}} | sudo -S shutdown -P now",
-        "guest_additions_mode": "disable",
-        "boot_wait": "5s",
-        "http_directory": ".",
-        "boot_command": [
-            "<enter><wait><f6><esc><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs>",
-            "<bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs>",
-            "<bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs>",
-            "<bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs>",
-            "/install/vmlinuz ",
-            "preseed/url=http://{{ .HTTPIP }}:{{ .HTTPPort }}/preseed.cfg ",
-            "debian-installer=en_US auto locale=en_US kbd-chooser/method=us ",
-            "hostname={{.Name}} ",
-            "fb=false debconf/frontend=noninteractive ",
-            "keyboard-configuration/modelcode=SKIP keyboard-configuration/layout=USA ",
-            "keyboard-configuration/variant=USA console-setup/ask_detect=false ",
-            "initrd=/install/initrd.gz -- <enter>"
-        ],
-        "vboxmanage": [
-            ["modifyvm", "{{.Name}}", "--cpus", "4"],
-            ["modifyvm", "{{.Name}}", "--memory", "4096"],
-            ["modifyvm", "{{.Name}}", "--clipboard", "bidirectional"],
-            ["modifyvm", "{{.Name}}", "--draganddrop", "bidirectional"],
-            ["modifyvm", "{{.Name}}", "--accelerate3d", "on"],
-            ["modifyvm", "{{.Name}}", "--vram", "128"]
-        ],
-        "vboxmanage_post": [
-            ["modifyvm", "{{.Name}}", "--cpus", "2"],
-            ["modifyvm", "{{.Name}}", "--memory", "2048"]
-        ],
-        "disk_size": 60000,
-        "format": "ova",
-        "vm_name": "cap"
-    }],
-    "_comment": "Asible provisioner is repeated because a reboot is triggered to activate the new kernel",
-    "provisioners": [{
-        "type": "shell",
-        "execute_command": "echo {{user `ssh_pass`}} | {{ .Vars }} sudo -E -S sh '{{ .Path }}'",
-        "inline": [
-            "apt-get update",
-            "apt-get install -y python-pip python-dev libffi-dev libssl-dev",
-            "pip install ansible==2.0.2.0"
-        ]
-    }, {
-        "type": "shell",
-        "execute_command": "echo {{user `ssh_pass`}} | {{ .Vars }} sudo -E -S sh '{{ .Path }}'",
-        "inline": ["echo '{{user `ssh_name`}} ALL=(ALL) NOPASSWD: ALL' >> /etc/sudoers"]
-    }, {
-        "type": "ansible-local",
-        "extra_arguments": ["--become", "--extra-vars", "run_zerofree=True"],
-        "playbook_file": "playbook.yml",
-        "role_paths": [
-            "roles/bootstrap", "roles/fpocket", "roles/knime", "roles/lxde",
-            "roles/r", "roles/self-upgrade", "roles/virtualbox-guest-additions", "roles/wiki",
-            "roles/postgresql", "roles/rdkit", "roles/chembl", "roles/chemtools", "roles/cleanup"
-        ]
-    }, {
-        "type": "shell",
-        "execute_command": "echo {{user `ssh_pass`}} | {{ .Vars }} sudo -E -S sh '{{ .Path }}'",
-        "inline": ["shutdown -r now", "sleep 60"],
-        "skip_clean": false
-    }, {
-        "type": "ansible-local",
-        "pause_before": "20s",
-        "extra_arguments": ["--become", "--extra-vars", "run_zerofree=True"],
-        "playbook_file": "playbook.yml",
-        "role_paths": [
-            "roles/bootstrap", "roles/fpocket", "roles/knime", "roles/lxde",
-            "roles/r", "roles/self-upgrade", "roles/virtualbox-guest-additions", "roles/wiki",
-            "roles/postgresql", "roles/rdkit", "roles/chembl", "roles/chemtools", "roles/cleanup"
-        ]
-    }],
-    "post-processors": [{
-        "type": "vagrant",
-        "vagrantfile_template": "Vagrantfile.tpl",
-        "keep_input_artifact": true
-    }]
+    {
+      "type": "shell",
+      "execute_command":
+        "echo {{user `ssh_pass`}} | {{ .Vars }} sudo -E -S sh '{{ .Path }}'",
+      "inline": [
+        "echo '{{user `ssh_name`}} ALL=(ALL) NOPASSWD: ALL' >> /etc/sudoers"
+      ]
+    },
+    {
+      "type": "ansible-local",
+      "extra_arguments": ["--become", "--extra-vars", "run_zerofree=True"],
+      "playbook_file": "playbook.yml",
+      "role_paths": [
+        "roles/bootstrap",
+        "roles/fpocket",
+        "roles/knime",
+        "roles/lxde",
+        "roles/r",
+        "roles/self-upgrade",
+        "roles/virtualbox-guest-additions",
+        "roles/wiki",
+        "roles/postgresql",
+        "roles/rdkit",
+        "roles/chembl",
+        "roles/chemtools",
+        "roles/cleanup"
+      ]
+    },
+    {
+      "type": "shell",
+      "execute_command":
+        "echo {{user `ssh_pass`}} | {{ .Vars }} sudo -E -S sh '{{ .Path }}'",
+      "inline": ["shutdown -r now", "sleep 60"],
+      "skip_clean": false
+    },
+    {
+      "type": "ansible-local",
+      "pause_before": "20s",
+      "extra_arguments": ["--become", "--extra-vars", "run_zerofree=True"],
+      "playbook_file": "playbook.yml",
+      "role_paths": [
+        "roles/bootstrap",
+        "roles/fpocket",
+        "roles/knime",
+        "roles/lxde",
+        "roles/r",
+        "roles/self-upgrade",
+        "roles/virtualbox-guest-additions",
+        "roles/wiki",
+        "roles/postgresql",
+        "roles/rdkit",
+        "roles/chembl",
+        "roles/chemtools",
+        "roles/cleanup"
+      ]
+    }
+  ],
+  "post-processors": [
+    {
+      "type": "vagrant",
+      "vagrantfile_template": "Vagrantfile.tpl",
+      "keep_input_artifact": true
+    }
+  ]
 }

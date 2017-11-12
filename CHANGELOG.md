@@ -4,9 +4,15 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
 
+## 0.8.5 - 2017-11-12
+
 ### Changed
 
+* Upgraded Virtualbox Guest Additions to v5.2.0
+* Upgrade KNIME to v3.4.1
 * Upgraded to Chembl to v23
+* Upgraded Ubuntu to 16.04.3
+* Upgraded RDKit to 2017_09_1
 
 ## 0.8.4 - 2017-03-10
 

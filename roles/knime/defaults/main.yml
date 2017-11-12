@@ -1,5 +1,5 @@
 ---
-knime_version: 3.3.1
+knime_version: 3.4.1
 knime_old_versions:
   - /opt/knime/knime-full_2.12.0
   - /opt/knime/knime-full_3.1.0
@@ -7,9 +7,10 @@ knime_old_versions:
   - /opt/knime/knime-full_3.1.2
   - /opt/knime/knime-full_3.2.0
   - /opt/knime/knime-full_3.2.1
+  - /opt/knime/knime-full_3.3.1
   - /opt/knime.tar.gz
 knime_root: /opt/knime/knime-full_{{ knime_version }}
-knime_update_version: 3.3
+knime_update_version: 3.4
 desktop_dir: /home/vagrant/Desktop
 ops_knime_version: 1.1.0
 knime_repositories: http://update.knime.org/analytics-platform/{{ knime_update_version }},http://update.knime.org/store/{{ knime_update_version }},http://update.knime.org/community-contributions/trusted/{{ knime_update_version }},http://update.knime.org/community-contributions/{{ knime_update_version }},http://update.knime.org/community-contributions/{{ knime_update_version }}
