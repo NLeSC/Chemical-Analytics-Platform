@@ -3,7 +3,7 @@
 - name: pymol
   apt: pkg=pymol state=latest
 - name: Fetching fpocket tarball
-  get_url: url=http://downloads.sourceforge.net/project/fpocket/fpocket2.tar.gz?r=http%3A%2F%2Fsourceforge.net%2Fprojects%2Ffpocket%2F&ts=1439986314&use_mirror=skylink dest=/opt/fpocket2.tar.gz mode=0440
+  get_url: url=https://downloads.sourceforge.net/project/fpocket/fpocket2.tar.gz?r=https%3A%2F%2Fsourceforge.net%2Fprojects%2Ffpocket%2Ffiles%2Flatest%2Fdownload&ts=1517159419 dest=/opt/fpocket2.tar.gz mode=0440
 - name: Unpacking fpocket tarball
   unarchive: src=/opt/fpocket2.tar.gz dest=/opt copy=no creates=/opt/fpocket2/changelog.txt
 - name: Patching fpocket makefile (See http://sourceforge.net/p/fpocket/mailman/message/28785185/)

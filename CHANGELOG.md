@@ -4,6 +4,18 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
 
+## 0.8.6
+
+### Changed
+
+* Upgraded Virtualbox Guest Additions to v5.2.6
+* Upgrade KNIME to v3.5.1
+* Upgraded RDKit to 2017_09_3
+
+### Removed
+
+* EU Openscreen nodes, no long available in community contributions
+
 ## 0.8.5 - 2017-11-12
 
 ### Changed
