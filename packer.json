@@ -46,6 +46,7 @@
         ["modifyvm", "{{.Name}}", "--memory", "2048"]
       ],
       "post_shutdown_delay": "120s",
+      "ssh_wait_timeout": "3600s",
       "disk_size": 60000,
       "format": "ova",
       "vm_name": "cap"
