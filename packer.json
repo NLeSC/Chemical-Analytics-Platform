@@ -37,6 +37,7 @@
         ["modifyvm", "{{.Name}}", "--memory", "4096"],
         ["modifyvm", "{{.Name}}", "--clipboard", "bidirectional"],
         ["modifyvm", "{{.Name}}", "--draganddrop", "bidirectional"],
+        ["modifyvm", "{{.Name}}", "--vrde", "off"],
         ["modifyvm", "{{.Name}}", "--accelerate3d", "on"],
         ["modifyvm", "{{.Name}}", "--vram", "128"]
       ],
