@@ -9,7 +9,7 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 ### Changed
 
 * Upgraded Virtualbox Guest Additions to v5.2.6
-* Upgrade KNIME to v3.5.1
+* Upgrade KNIME to v3.5.2
 * Upgraded RDKit to 2017_09_3
 
 ### Removed
