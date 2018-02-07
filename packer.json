@@ -61,7 +61,7 @@
       "inline": [
         "apt-get update",
         "apt-get install -y python-pip python-dev libffi-dev libssl-dev",
-        "pip install ansible==2.0.2.0"
+        "pip install ansible==2.4.3.0"
       ]
     },
     {
