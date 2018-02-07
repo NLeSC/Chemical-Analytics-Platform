@@ -12,6 +12,10 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 * Upgrade KNIME to v3.5.2
 * Upgraded RDKit to 2017_09_3
 
+### Fixed
+
+* Remove old kernels (#25)
+
 ### Removed
 
 * EU Openscreen nodes, no long available in community contributions

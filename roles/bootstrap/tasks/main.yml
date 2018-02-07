@@ -19,6 +19,9 @@
   register: reboot_required
 - include: reboot.yml
   when: reboot_required.stat.islnk is defined and not run_zerofree
+- name: Remove dependencies that are no longer required
+  apt:
+    autoremove: yes
 - name: Create ~/.ssh directory
   file: path=/home/vagrant/.ssh state=directory mode="0700" owner=vagrant group=vagrant
 - name: Add insecure vagrant key
