@@ -1,0 +1,17 @@
+# YAML 1.2
+# Metadata for citation of this software according to the CFF format (https://citation-file-format.github.io/)
+cff-version: 1.0.3
+message: If you use this software, please cite it as below.
+title: Chemical Analytics Platform Virtual Machine
+doi: 10.5281/zenodo.1042416
+authors:
+- given-names: Stefan
+  family-names: Verhoeven
+  affiliation: Nederlands eScience Center
+- given-names: Ross
+  family-names: McGuire
+  affiliation: Bioaxis
+version: 0.8.4
+date-released: '2017-03-10'
+repository-code: https://github.com/NLeSC/Chemical-Analytics-Platform
+license: Apache-2.0
