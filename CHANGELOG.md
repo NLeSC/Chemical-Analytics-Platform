@@ -4,6 +4,15 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
 
+### Changed
+
+* Upgraded Virtualbox Guest Additions to v5.2.10
+
+### Fixed
+
+* Fix cran url
+* Unexpected disconnect
+
 ## 0.8.6
 
 ### Changed
