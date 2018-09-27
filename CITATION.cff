@@ -19,7 +19,7 @@ authors:
     orcid: "https://orcid.org/0000-0001-8286-677X"
 cff-version: "1.0.3"
 date-released: 2018-09-27
-doi: "TODO..I use the concept doi here"
+doi: "10.5281/zenodo.1436464"
 keywords: 
   - KNIME
   - "chemical analytics platform"
