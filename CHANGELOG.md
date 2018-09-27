@@ -4,26 +4,19 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
 
+## 0.8.6 - 2018-09-27
+
 ### Changed
 
 * Upgraded Virtualbox Guest Additions to v5.2.10
-
-### Fixed
-
-* Fix cran url
-* Unexpected disconnect
-
-## 0.8.6
-
-### Changed
-
-* Upgraded Virtualbox Guest Additions to v5.2.6
 * Upgrade KNIME to v3.5.2
 * Upgraded RDKit to 2017_09_3
 
 ### Fixed
 
 * Remove old kernels (#25)
+* Updated cran url
+* Unexpected disconnect
 
 ### Removed
 
