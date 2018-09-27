@@ -53,7 +53,7 @@
     }
   ],
   "_comment":
-    "Asible provisioner is repeated because a reboot is triggered to activate the new kernel",
+    "Ansible provisioner is repeated because a reboot is triggered to activate the new kernel",
   "provisioners": [
     {
       "type": "shell",
@@ -94,11 +94,12 @@
       ]
     },
     {
-      "type": "shell",
-      "execute_command":
+	"type": "shell",
+	"execute_command":
         "echo {{user `ssh_pass`}} | {{ .Vars }} sudo -E -S sh '{{ .Path }}'",
-      "inline": ["shutdown -r now", "sleep 60"],
-      "skip_clean": false
+	"inline": ["shutdown -r now", "sleep 60"],
+	"skip_clean": false,
+	"expect_disconnect": true
     },
     {
       "type": "ansible-local",
